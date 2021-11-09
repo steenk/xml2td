@@ -1,0 +1,22 @@
+{
+  "name": "xml2td",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Parse XML to JSON (tripledollar style)",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "tripledollar",
+    "xml"
+  ],
+  "author": "steenk",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^9.1.3"
+  }
+}
