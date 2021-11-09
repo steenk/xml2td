@@ -1,7 +1,10 @@
 import SAX from './lib/sax.js';
 
 function cleanup (str) {
-	return str.replaceAll('\t', '\\t').replaceAll('\n', '\\n');
+	return str
+		.replaceAll('\t', '\\t')
+		.replaceAll('\n', '\\n')
+		.replaceAll('"', '\\"');
 }
 
 export default function (xml, td) {
