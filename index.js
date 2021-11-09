@@ -31,7 +31,7 @@ export default function (xml, td) {
 		}
 	})
 
-	sax.parse(xml);
+	sax.parse(xml.trim());
 
 	return td.join('');
 }
