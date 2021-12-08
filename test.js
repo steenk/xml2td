@@ -29,9 +29,14 @@ describe('Test simple XMLs', () => {
 	it('should also work with spaces', () => {
 		let str = '<root>\t  <test nr="5" with="spaces">678 </test>\n<test>hello</test>\n<test>\t\t</test> </root>';
 		let td = xml2td(str);
-		//console.log('JSON:', td);
 		let xml = td2xml(td);
-		//console.log('XML:', xml);
 		assert.equal(str, xml);
 	});
+	it('should recognize processing instructions', () => {
+		let str = '<?xml version="1.0" encoding="UTF-8"?><root/>';
+		let td = xml2td(str);
+		assert.equal('root', td[0]);
+	})
 })
+
+

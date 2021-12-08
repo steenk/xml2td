@@ -32,10 +32,13 @@ export default function (xml, td) {
 		} else {
 			td.push(',"' + cleanup(txt) + '"');
 		}
+	});
+
+	sax.on('processingInstructions', () => {
+		/* we don't care */
 	})
 
 	sax.parse(xml.trim());
-
 	return JSON.parse(td.join(''));
 }
 
