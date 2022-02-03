@@ -2,9 +2,9 @@ import SAX from './lib/sax.js';
 
 function cleanup (str) {
 	return str
-		.replaceAll('\t', '\\t')
-		.replaceAll('\n', '\\n')
-		.replaceAll('"', '\\"');
+		.replace(new RegExp('\t','g'), '\\t')
+		.replace(new RegExp('\n','g'), '\\n')
+		.replace(new RegExp('"','g'), '\\"');
 }
 
 export default function (xml, td) {
