@@ -8,6 +8,7 @@ function cleanup (str) {
 }
 
 export default function (xml, td) {
+  if (/^\s?<!DOCTYPE\shtml>/.test(xml)) return;
 	const sax = new SAX();
 	sax.on('startElement', (name, attrs) => {
 		if (td) {
