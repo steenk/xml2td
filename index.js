@@ -1,4 +1,5 @@
 import SAX from './lib/sax.js';
+import node from './lib/td-node.js';
 
 function cleanup (str) {
 	return str
@@ -45,4 +46,4 @@ export default function (xml, td) {
 
 import td2xml from './lib/element.js';
 
-export { td2xml };
+export { td2xml, node };
