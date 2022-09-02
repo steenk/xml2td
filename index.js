@@ -41,7 +41,9 @@ export default function (xml, td) {
 	})
 
 	sax.parse(xml.trim());
-	return JSON.parse(td.join(''));
+	if (td) {
+		return JSON.parse(td.join(''));
+	}
 }
 
 import td2xml from './lib/element.js';

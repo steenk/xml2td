@@ -86,6 +86,12 @@ describe('Test a node chain', () => {
 		let fract = node(td).node('test');
 		assert.equal(fract.size, 3); 
 	})
+	it('should return a single child with index 0', () => {
+		let xml = '<root><test nr="1"/></root>';
+		let td = xml2td(xml);
+		let elem = node(td).node('test').node(0);
+		assert.equal(elem.tagname, 'test'); 
+	})
 })
 
 
