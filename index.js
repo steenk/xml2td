@@ -8,7 +8,7 @@ function cleanup (str) {
 		.replace(new RegExp('"','g'), '\\"');
 }
 
-export default function (xml, td) {
+function parse (xml, td, trim_ws) {
   if (/^\s?<!DOCTYPE\shtml>/.test(xml)) return;
 	const sax = new SAX();
 	sax.on('startElement', (name, attrs) => {
@@ -31,6 +31,8 @@ export default function (xml, td) {
 			td.push(',' + txt + '');
 		} else if (/^[\+\-]?[1-9]+\.?\d+(?:[Ee][\+\-]?\d+)?$/.test(txt)) {
 			td.push(',' + txt + '');
+		} else if (trim_ws && /^\s*$/.test(txt)) {
+			// trim ws
 		} else {
 			td.push(',"' + cleanup(txt) + '"');
 		}
@@ -44,6 +46,10 @@ export default function (xml, td) {
 	if (td) {
 		return JSON.parse(td.join(''));
 	}
+}
+
+export default function (xml, keep_whitespaces) {
+	return parse(xml, null, !keep_whitespaces);
 }
 
 import td2xml from './lib/element.js';

@@ -1,6 +1,4 @@
-# xml2td
-
-This is a simple module for converting XML to JSON in a tripledollar structure fashion. It means a nested array structure where the first item in each array is the name of the element, and the second is optionally an object with all attributes. The rest of the items in an array can be text content, or other arrays. This way to represent an XML as a JSON string maps with any XML structure, and it's easy to convert back and forth. There is a reverse function "td2xml" also, apart from the default function.
+XML to JSON in a tripledollar structure fashion. It means a nested array structure where the first item in each array is the name of the element, and the second is optionally an object with all attributes. The rest of the items in an array can be text content, or other arrays. This way to represent an XML as a JSON string maps with any XML structure, and it's easy to convert back and forth. There is a reverse function "td2xml" also, apart from the default function.
 
 ```js
 import xml2td, { td2xml } from 'xml2td';
@@ -13,9 +11,11 @@ console.log(xml);
 
 ```
 
+Text that consists only of spaces, tabs and newlines will be suppressed by default. To preserve all characters from an xml, run the transformation with a _true_ as the second parameter, `xml2td(xml, true)`.
+
 ## XML nodes
 
-The "tdstruct" representation of an XML can map any XML, but it is bad as a structure to work with, there is no keys to access, just nested lists. To make it more usable, there is a method to get a "node" out of a "tdstruct". THe "node" method is chainable, so it can be used to travers a "tdstruct".
+The "tdstruct" representation of an XML can map any XML, but it is bad as a structure to work with, there is no keys to access, just nested lists. To make it more usable, there is a method to get a "node" out of a "tdstruct". THe "node" method is chainable, so it can be used to traverse a "tdstruct".
 
 ```js
 import xml2td, { td2xml, node } from 'xml2td';

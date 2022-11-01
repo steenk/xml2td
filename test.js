@@ -28,7 +28,7 @@ describe('Test simple XMLs', () => {
 	});
 	it('should also work with spaces', () => {
 		let str = '<root>\t  <test nr="5" with="spaces">678 </test>\n<test>hello</test>\n<test>\t\t</test> </root>';
-		let td = xml2td(str);
+		let td = xml2td(str, true);
 		let xml = td2xml(td);
 		assert.equal(str, xml);
 	});
@@ -69,7 +69,7 @@ describe('Test a node chain', () => {
 		assert.equal(JSON.stringify(elem.content), undefined);
 	})
 	it('should convert back', () => {
-		let td = xml2td(xml);
+		let td = xml2td(xml, true);
 		let xml2 = td2xml(td);
 		assert.equal(xml, xml2);
 	});
