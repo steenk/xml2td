@@ -1,6 +1,6 @@
 {
   "name": "xml2td",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "type": "module",
   "description": "Parse XML to JSON (tripledollar style)",
   "main": "index.js",
